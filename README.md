@@ -1,42 +1,56 @@
-# Chatbot cum Voice Assistant
-This a chatbot cum voice assistant that can be used for different purposes. It can do the following tasks:
-1. Normal conversation through voice.
-2. Get your all events or particular ones from your google calender.
-3. Make a google search of your query and open up the browser with the results.
-4. Make notes to write down something using notepad.
-5. Send emails using Gmail.
-6. Open music and vs code application.
-7. Search directly anything on Wikipedia.
-8. Get real time weather report of your city.
+Wrath - An AI Chatbot
+Wrath is a voice-enabled AI chatbot that performs a range of tasks, from natural conversation to managing your Google Calendar, sending emails, and fetching real-time weather reports. Wrath is designed to be a multi-functional assistant, supporting various everyday and productivity tasks through voice and text interactions.
 
-## Screenshots of the project
-![Image](/images/chatbot.jpg)
+Features
+Voice Conversation: Engage in real-time conversation through voice.
+Google Calendar Integration: Retrieve all or specific events from your Google Calendar.
+Google Search: Opens your browser with search results based on your query.
+Note Taking: Uses Notepad to store notes.
+Email Sending: Send emails using Gmail.
+Application Launching: Open applications like Music and VS Code.
+Wikipedia Search: Directly fetch information from Wikipedia.
+Real-Time Weather Reports: Get current weather information using OpenWeatherMap.
 
-## Installation
-* All the modules which are required for this application are stated in requirements.txt file. 
-To install all of them rum the following command:
-```
+Installation
+Prerequisites
+Ensure Python is installed. All required modules are listed in the requirements.txt file.
+
+Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/your-username/wrath-ai-chatbot.git
+cd wrath-ai-chatbot
+Install dependencies:
+
+bash
+Copy code
 pip3 install -r requirements.txt
-```
+API Setup
+Google Calendar API
+Enable the Google Calendar API for your account by following the instructions here.
+Download the credentials.json file and place it in the project directory.
+OpenWeatherMap API
+Create an account on OpenWeatherMap to obtain an API key.
 
-* Enable Google Calender API with your account here: https://developers.google.com/calendar/quickstart/python
-* Get a weather api key by creating your account on https://openweathermap.org/api
-* Create a keys.py file and add the following:
-    * EMAIL = "your email id to send emails from"
-    * PASSWORD = "pasword of your email id"
-    * DICT = "A dictionary to store the emails of recipients"
-    * WEATHER_KEY = "your weather api key"
+Create a keys.py file in the project directory with the following:
 
-## Working of the project
-The working of the assistant is pretty simple.
-First, a simple GUI shows up, in which you can see all your ongoing conversation.
-When we click on the speak icon, it detects the voice and converts it to text using
-speech_recognition module. 
-On the text, first NLP is applied that creates a bag of words model which is then passed to a pre trained neural network made using the tflearn module. This network returns the "tag" with which 
-the sentence is associated(see intents.json). 
-This "tag" is then used to find the "sub tag" with which the sentence is associated
-again with the help of the same model.
-Once, the subtag is determined, it returns the appropriate answer associated with that
-subtag, and the pyttsx3 module is used to convey the answer through voice.
+python
+Copy code
+EMAIL = "your email to send emails from"
+PASSWORD = "password of your email"
+DICT = {"recipient_name": "recipient_email"}  # Dictionary of email contacts
+WEATHER_KEY = "your weather api key"
+Usage
+Start the Application:
+Run the main script:
 
+bash
+Copy code
+python main.py
+Interacting with Wrath:
+
+A GUI window will open, displaying the conversation.
+Click on the speak icon to activate voice detection.
+Wrath listens, converts your voice to text, and responds through the GUI and voice output.
 
